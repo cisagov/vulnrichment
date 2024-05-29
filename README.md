@@ -26,6 +26,10 @@ Of all the enriched data types, consistent and universal software identification
 2. CPE entries that are present in NVD data but not in the Dictionary
 3. CPE entries created by CISA
 
+### A note about updated CVE entries
+
+Since the CISA ADP is committed to encouraging CNAs to Do The Right Thing and provide their own CWE, CVSS, and CPE metrics, if a CVE entry is updated to include those metrics after the CISA ADP has made their assessment, the CISA ADP will drop its own assessments from the CVE entry. This approach will reduce duplicate (and conflicting) data within the CVE record.
+
 ## Learn more
 
 This project is expected to evolve quickly over the next several weeks, so please keep an eye on this [README.md](https://github.com/cisagov/vulnrichment/blob/develop/README.md).
