@@ -28,7 +28,7 @@ Of all the enriched data types, consistent and universal software identification
 
 ### A note about updated CVE entries
 
-Since the CISA ADP is committed to encouraging CNAs to Do The Right Thing and provide their own CWE, CVSS, and CPE metrics, if a CVE entry is updated to include those metrics after the CISA ADP has made their assessment, the CISA ADP will drop its own assessments from the CVE entry. This approach will reduce duplicate (and conflicting) data within the CVE record.
+Since the CISA ADP is committed to encouraging CNAs to Do The Right Thing and provide their own CWE, CVSS, and CPE metrics, if a CVE entry is updated to include those metrics after the CISA ADP has made their assessment, the CISA ADP will drop its own assessments from the CVE entry. This approach will reduce duplicate (and conflicting) data within the CVE record. In the rare event that there is a CWE, CVSS, or CPE string provided by the originating CNA *and* the CISA ADP, this should be treated as an error in the CISA ADP container -- the originating CNA's data should take precedence for any decision making.
 
 ## Learn more
 
