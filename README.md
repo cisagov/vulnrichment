@@ -12,7 +12,9 @@ Next, for those CVEs that are rated as "Total Technical Impact," "Automatable," 
 
 For those CVEs that do not already have these fields populated by the originating CNA, CISA will populate the associated ADP container with those values when there is enough supporting evidence to do so.  In some cases, CISA may also add reference URLs. At no point will CISA overwrite the originating CNA's data in the original CNA container in the CVE record.
 
-### Some example CVEs
+This [flowchart](assets/vulnrichment_big.dot.svg) ([dot source](assets/vulnrichment_big.dot)) illustrates the Vulnrichment process. Please note that the details in the flowchart are subject to change as Vulnrichment processes are refined.
+
+### An example CVE
 
 Let's take a moment to look at some CVEs records for each kind of vulnrichment you can expect from the CISA ADP.
 

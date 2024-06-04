@@ -1,0 +1,112 @@
+digraph vulnrichment {
+
+	label = "CISA Vulnrichment Process\nhttps://github.com/cisagov/vulnrichment\n2024-06-03"
+	layout="dot"
+	fontname="helvetica"
+	ordering="out"
+	#size="6.5,9";
+	#ratio="compress"
+	#concentrate="true"
+	node [width=1 height=0.7]
+
+	"start" [label="Start" shape="box" style="rounded"]
+	"stop" [label="Stop" shape="box" style="rounded"]
+	"new" [label="New CVE?" shape="diamond"]
+	"update" [label="Updated\n CVE?" shape="diamond" style="dashed"]
+	"redo" [label="Material\n change?" shape="diamond" style="dashed"]
+	"exploitation" [label="Exploitation?" shape="diamond"]
+	"technical_impact" [label="Technical\nImpact?" shape="diamond"]
+	"automatable" [label="Automatable?" shape="diamond"]
+	"cwe" [label="CWE?" shape="diamond"]
+	"cvss" [label="CVSS?" shape="diamond"]
+	"cpe" [label="CPE?" shape="diamond"]
+	"references" [label="Additional\nreferences?" shape="diamond"]
+	"do_cwe" [label="Add CWE" shape="box"]
+	"do_cvss" [label="Add CVSS" shape="box"]
+	"do_cpe" [label="Add CPE" shape="box"]
+	"do_references" [label="Add\nreferences" shape="box"]
+	"github" [label="GitHub" shape="box"]
+	"adp" [label="ADP" shape="box"]
+	"publish" [label="Publish" shape="box"]
+	"cna" [label="Get latest CNA\nconatiner" shape="box"]
+	"other" [label="Other\nfactors?" shape="diamond"]
+	"error" [label="Error" shape="box" style="dashed"]
+
+	redo -> stop [taillabel=" no" style="dashed" labelangle="19" labeldistance="4"]
+	update -> error [label=" no" style="dashed"]
+	error -> stop [style="dashed"]
+	publish_stop -> stop
+
+	subgraph cluster_new {
+		label = "New"
+		start -> new
+		#peripheries=0
+		style=invis
+	}
+
+	# add KEV
+
+	# add noinfo
+
+	subgraph cluster_triage {
+		label = "Triage\r"
+		"triage_start" [label="Start\ntriage" shape="box" style="rounded"]
+		"triage_enrich" [label="Enrich" shape="box" style="rounded"]
+		"triage_skip" [label="Do not\nenrich" shape="box" style="rounded"]
+		new -> triage_start [weight="" taillabel="yes" labelangle="26" labeldistance="3"]
+		triage_start -> exploitation [weight="10"]
+		exploitation -> automatable [label=" none"]
+		automatable -> technical_impact [label=" no"]
+		technical_impact -> triage_enrich [label="complete"]
+		exploitation -> triage_enrich [label="active"]
+		exploitation -> triage_enrich [label=" PoC"]
+		automatable -> triage_enrich [label=" yes"]
+		technical_impact -> other [label="  partial"]
+		other -> triage_skip [label="  no"]
+		other -> triage_enrich [label="  yes"]
+	}
+
+	subgraph cluster_update {
+		graph [style="dashed"]
+		label = "Update"
+		new -> update [taillabel="no" style="dashed" weight="" labelangle="26" labeldistance="2"]
+		update -> redo [label="  yes" style="dashed"]
+		#redo -> triage_start [taillabel=" yes" style="dashed" labelangle="30" labeldistance="2"]
+		redo -> triage_start [label="   yes" style="dashed"]
+	}
+
+	subgraph cluster_publish {
+		label = "Publish"
+		"publish_start" [label="Start\npublishing" shape="box" style="rounded"]
+		"publish_stop" [label="Stop\npublishing" shape="box" style="rounded"]
+		cna -> publish
+		publish -> github
+		publish -> adp
+		triage_skip -> publish_start [weight="10"]
+		publish_start -> cna
+		github -> publish_stop
+		adp -> publish_stop
+	}
+
+	subgraph cluster_enrich {
+		label = "Enrich"
+		"enrich_start" [label="Start\nenrichment" shape="box" style="rounded"]
+		"enrich_stop" [label="Stop\nenrichment" shape="box" style="rounded"]
+		triage_enrich -> enrich_start
+		enrich_start -> cwe
+		cwe -> cvss [label=" yes"]
+		cwe -> do_cwe [label=" no"]
+		do_cwe -> cvss
+		cvss -> cpe [label=" yes"]
+		cvss -> do_cvss [label=" no"]
+		do_cvss -> cpe
+		cpe -> references [label=" yes"]
+		cpe -> do_cpe [label=" no"]
+		do_cpe -> references
+		references -> do_references [label=" yes"]
+		references -> enrich_stop [label=" no"]
+		do_references -> enrich_stop
+		enrich_stop -> publish_start
+	}
+
+}
