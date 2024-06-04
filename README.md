@@ -70,24 +70,6 @@ CVE-2024-35057 has a "total" value for "Technical Impact" on [line 78](2024/35xx
                 ]
 ```
 
-Finally, CVE-2024-33666 scores a "none" for Exploitation, "no" for Automatable, and "partial" for Technical Impact, on [lines 80-90](CVE-2024-33666.json#L80-L90).
-
-```json
-                "options": [
-                  {
-                    "Exploitation": "none"
-                  },
-                  {
-                    "Automatable": "no"
-                  },
-                  {
-                    "Technical Impact": "partial"
-                  }
-                ]
-```
-
-In most cases, this would be the end of the vulnrichment line for such a vulnerability. However, in this case, the analyst did add CWE and CPE values (and left CVSS alone, since that was already in the original CNA record). While the CISA ADP is committed to providing these values for all CVEs that register an "interesting" SSVC decision point, CISA analysts will add these vulnrichment points to even "boring," lower-risk CVEs as time and resources allow.
-
 #### KEV flag
 
 For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a KEV block. For those that aren't, no udpate will occur.
