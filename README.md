@@ -2,21 +2,164 @@
 
 The CISA Vulnrichment project is the public repository of CISA's enrichment of public CVE records through CISA's ADP (Authorized Data Publisher) container. In this phase of the project, CISA is assessing new and recent CVEs and adding key [SSVC](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc) decision points. Once scored, some higher-risk CVEs will also receive enrichment of [CWE](https://cwe.mitre.org/), [CVSS](https://www.first.org/cvss/), and [CPE](https://csrc.nist.gov/publications/search?keywords-lg=CPE) data points, where possible.
 
-Producers and consumers of this CVE data should already be familiar with the current [CVE Record Format](https://www.cve.org/AllResources/CveServices#CveRecordFormat) and can access this data in the normal ways, including the [GitHub API](https://docs.github.com/en/rest/quickstart).
+Producers and consumers of this CVE data should already be familiar with the current [CVE Record Format](https://www.cve.org/AllResources/CveServices#CveRecordFormat) and can access this data in the normal ways, including the [GitHub API](https://docs.github.com/en/rest/quickstart) and the [CVE Services API](https://cveawg-test.mitre.org/api-docs/). 
 
 ## How it works
 
 First, CISA will take each CVE through an SSVC scoring process.
 
-Next, for those CVEs that are rated as "Total Technical Impact," "Automatable," or have "Exploitation" values of "Proof of Concept" or "Active Exploitation," further analysis will be conducted. CISA will determine if there is enough information to assert a specific CWE identifier, a CVSS score, or a CPE string.
+Next, for those CVEs that are rated as "Total Technical Impact," "Automatable," or have "Exploitation" values of "Proof of Concept" or "Active Exploitation," further analysis will be conducted. CISA will determine if there is enough information to assert a specific CWE identifier, a CVSS score, or a CPE string. In some cases, CISA will provide these metrics even to vulnerabilities that do not rate as high risk on any of these decision points.
 
 For those CVEs that do not already have these fields populated by the originating CNA, CISA will populate the associated ADP container with those values when there is enough supporting evidence to do so.  In some cases, CISA may also add reference URLs. At no point will CISA overwrite the originating CNA's data in the original CNA container in the CVE record.
 
-### An example CVE
+### Some example CVEs
 
-Take a look at [CVE-2024-3931](2024/3xxx/CVE-2024-3931.json), which was fairly recently assigned, but otherwise chosen at random.
+Let's take a moment to look at some CVEs records for each kind of vulnrichment you can expect from the CISA ADP.
 
-For this CVE, the CISA ADP starts on [line 119](2024/3xxx/CVE-2024-3931.json#L119). CISA has determined that a proof-of-concept exploit is available for this vulnerability, so that's noted on [line 130](2024/3xxx/CVE-2024-3931.json#L130). CISA has also enriched this CVE ID with a CPE string on [line 147](2024/3xxx/CVE-2024-3931.json#L147) , `"cpe2.3:a:totara:enterprise_lms:*:*:*:*:*:*:*:*"`. However, since the originating CNA already provided CWE and CVSS data, CISA has not updated or copied those values into the ADP container.
+All of the CVEs taken as examples below were chosen at random among those that fit the demonstrated criteria.
+
+#### SSVC decision points
+
+Every CVE analyzed by the CISA ADP will have three SSVC decision points listed. For these examples, we'll take a look at CVE-2024-34974, CVE-2024-25522, and CVE-2024-35057. We'll also look at CVE-2024-33666, which is a low-risk SSVC score.
+
+CVE-2024-25522 has a "poc" value for Exploit on [line 82](2024/25xxx/CVE-2024-25522.json#L82) indicating there was a public proof-of-concept available at the time of analysis:
+
+```json
+                "options": [
+                  {
+                    "Exploitation": "poc"
+                  },
+                  {
+                    "Automatable": "yes"
+                  },
+                  {
+                    "Technical Impact": "total"
+                  }
+                ]
+```
+
+CVE-2024-34974 has a "yes" value for "Automatable" on [line 75](2024/34xxx/CVE-2024-34974.json#L75) indicating that an attacker could generally exploit this vulnerability at will, without having to worry about recon, weaponization, delivery, or exploitation prevention techniques.
+
+```json
+                "options": [
+                  {
+                    "Exploitation": "none"
+                  },
+                  {
+                    "Automatable": "yes"
+                  },
+                  {
+                    "Technical Impact": "partial"
+                  }
+                ]
+```
+
+CVE-2024-35057 has a "total" value for "Technical Impact" on [line 78](2024/35xxx/CVE-2024-35057.json#L78) indicating that the exploiting this vulnerability generally will give the attacker total control over the impacted software.
+
+```json
+                "options": [
+                  {
+                    "Exploitation": "none"
+                  },
+                  {
+                    "Automatable": "no"
+                  },
+                  {
+                    "Technical Impact": "total"
+                  }
+                ]
+```
+
+Finally, CVE-2024-33666 scores a "none" for Exploitation, "no" for Automatable, and "partial" for Technical Impact, on [lines 80-90](CVE-2024-33666.json#L80-L90).
+
+```json
+                "options": [
+                  {
+                    "Exploitation": "none"
+                  },
+                  {
+                    "Automatable": "no"
+                  },
+                  {
+                    "Technical Impact": "partial"
+                  }
+                ]
+```
+
+In most cases, this would be the end of the vulnrichment line for such a vulnerability. However, in this case, the analyst did add CWE and CPE values (and left CVSS alone, since that was already in the original CNA record). While the CISA ADP is committed to providing these values for all CVEs that register an "interesting" SSVC decision point, CISA analysts will add these vulnrichment points to even "boring," lower-risk CVEs as time and resources allow.
+
+#### KEV flag
+
+For those CVEs that are on the KEV, the CISA ADP will add a KEV block. For those that aren't, no udpate will occur.
+
+CVE-2024-4947 is one such CVE. Taking a look at line 102: 
+
+[CVE-2024-4947](2024/4xxx/CVE-2024-4947): This CVE is on the KEV, and contains the KEV block starting at [line 102](2024/4xxx/CVE-2024-4947.json#L102-L107):
+
+```json
+            "other": {
+              "type": "kev",
+              "content": {
+                "dateAdded": "2024-05-20",
+                "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-4947"
+              }
+```
+
+#### CWE identifiers
+
+CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE, and a CISA analyst was able to determine one from the context of the vulnerability information available. That metric starts on [line 98](2024/3xxx/CVE-2024-3477.json#L98-L109) under the `problemTypes` node:
+
+```json
+        "problemTypes": [
+          {
+            "descriptions": [
+              {
+                "lang": "en",
+                "type": "CWE",
+                "cweId": "CWE-352",
+                "description": "CWE-352 Cross-Site Request Forgery (CSRF)"
+              }
+            ]
+          }
+        ]
+```
+
+#### CVSS calculations
+
+CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, starting on [line 64](2024/0xxx/CVE-2024-0043.json#L64-L77). Again, this is based on the context of the vulnerability information available at the time of analysis.
+
+```json
+            "cvssV3_1": {
+              "scope": "UNCHANGED",
+              "version": "3.1",
+              "baseScore": 7.8,
+              "attackVector": "LOCAL",
+              "baseSeverity": "HIGH",
+              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "integrityImpact": "HIGH",
+              "userInteraction": "REQUIRED",
+              "attackComplexity": "LOW",
+              "availabilityImpact": "HIGH",
+              "privilegesRequired": "NONE",
+              "confidentialityImpact": "HIGH"
+            }
+```
+
+#### CPE strings
+
+CVE-2024-1347 is an example CVE that had a CPE string added by CISA, starting on [line 153](2024/1xxx/CVE-2024-1347.json#L153-L155). 
+
+```json
+            "cpes": [
+              "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*"
+            ]
+```
+
+We have more to say about CPE strings below.
+
+#### No additional updates
+
+CVE-2024-2905 is an example CVE that already had CWE, CVSS, and CPE metrics when CISA performed the SSVC triage step, and it's not on the KEV, so nothing more needed to be added. Good job, Red Hat CNA!
 
 ### A note about CPE
 
