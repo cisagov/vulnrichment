@@ -1,6 +1,6 @@
 digraph vulnrichment {
 
-	label = "CISA Vulnrichment Process\n (work in progress)"
+	label = "CISA Vulnrichment Process\nhttps://github.com/cisagov/vulnrichment\n2024-06-03"
 	layout="dot"
 	fontname="helvetica"
 	ordering="out"
