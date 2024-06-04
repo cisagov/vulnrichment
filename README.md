@@ -90,7 +90,7 @@ In most cases, this would be the end of the vulnrichment line for such a vulnera
 
 #### KEV flag
 
-For those CVEs that are on the KEV, the CISA ADP will add a KEV block. For those that aren't, no udpate will occur.
+For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a KEV block. For those that aren't, no udpate will occur.
 
 CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 102](2024/4xxx/CVE-2024-4947.json#L102-L107):
 
