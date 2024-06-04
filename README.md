@@ -139,7 +139,7 @@ We have more to say about CPE strings below.
 
 #### No additional updates
 
-CVE-2024-2905 is an example CVE that already had CWE, CVSS, and CPE metrics when CISA performed the SSVC triage step, and it's not on the KEV, so nothing more needed to be added. Good job, Red Hat CNA!
+CVE-2024-2905 is an example CVE that already had CWE, CVSS, and CPE metrics (see [here](2024/2xxx/CVE-2024-2905.json)) when CISA performed the SSVC triage step, and it's not on the KEV, so nothing more needed to be added. Good job, Red Hat CNA!
 
 ### A note about CPE
 
