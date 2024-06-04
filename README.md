@@ -14,7 +14,7 @@ For those CVEs that do not already have these fields populated by the originatin
 
 This [flowchart](assets/vulnrichment_big.dot.svg) ([dot source](assets/vulnrichment_big.dot)) illustrates the Vulnrichment process. Please note that the details in the flowchart are subject to change as Vulnrichment processes are refined.
 
-### An example CVE
+### Some example CVEs
 
 Let's take a moment to look at some CVEs records for each kind of vulnrichment you can expect from the CISA ADP.
 
