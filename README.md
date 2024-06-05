@@ -2,7 +2,9 @@
 
 The CISA Vulnrichment project is the public repository of CISA's enrichment of public CVE records through CISA's ADP (Authorized Data Publisher) container. In this phase of the project, CISA is assessing new and recent CVEs and adding key [SSVC](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc) decision points. Once scored, some higher-risk CVEs will also receive enrichment of [CWE](https://cwe.mitre.org/), [CVSS](https://www.first.org/cvss/), and [CPE](https://csrc.nist.gov/publications/search?keywords-lg=CPE) data points, where possible.
 
-Producers and consumers of this CVE data should already be familiar with the current [CVE Record Format](https://www.cve.org/AllResources/CveServices#CveRecordFormat) and can access this data in the normal ways, including the [GitHub API](https://docs.github.com/en/rest/quickstart) and the [CVE Services API](https://cveawg-test.mitre.org/api-docs/). 
+Producers and consumers of this CVE data should already be familiar with the current [CVE Record Format](https://www.cve.org/AllResources/CveServices#CveRecordFormat) and can access this data in the normal ways, including the [GitHub API](https://docs.github.com/en/rest/quickstart) and the [CVE Services API](https://cveawg-test.mitre.org/api-docs/).
+
+This project is under active development, so keep an eye on this [README.md](https://github.com/cisagov/vulnrichment/blob/develop/README.md) for updates.
 
 ## How it works
 
@@ -16,7 +18,7 @@ This [flowchart](assets/vulnrichment_big.dot.svg) ([dot source](assets/vulnrichm
 
 ### Some example CVEs
 
-Let's take a moment to look at some CVEs records for each kind of vulnrichment you can expect from the CISA ADP.
+Let's take a moment to look at some CVE records for each kind of vulnrichment you can expect from the CISA ADP.
 
 All of the CVEs taken as examples below were chosen at random among those that fit the demonstrated criteria.
 
@@ -74,7 +76,7 @@ CVE-2024-35057 has a "total" value for "Technical Impact" on [line 78](2024/35xx
 
 #### KEV flag
 
-For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a KEV block. For those that aren't, no udpate will occur.
+For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a KEV block. For those that aren't, no update will occur.
 
 CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 102](2024/4xxx/CVE-2024-4947.json#L102-L107):
 
@@ -129,7 +131,7 @@ CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, start
 
 #### CPE strings
 
-CVE-2024-1347 is an example CVE that had a CPE string added by CISA, starting on [line 153](2024/1xxx/CVE-2024-1347.json#L153-L155). 
+CVE-2024-1347 is an example CVE that had a CPE string added by CISA, starting on [line 153](2024/1xxx/CVE-2024-1347.json#L153-L155).
 
 ```json
             "cpes": [
@@ -153,12 +155,8 @@ Of all the enriched data types, consistent and universal software identification
 
 ### A note about updated CVE entries
 
-Since the CISA ADP is committed to encouraging CNAs to Do The Right Thing and provide their own CWE, CVSS, and CPE metrics, if a CVE entry is updated to include those metrics after the CISA ADP has made their assessment, the CISA ADP will drop its own assessments from the CVE entry. This approach will reduce duplicate (and conflicting) data within the CVE record. In the rare event that there is a CWE, CVSS, or CPE string provided by the originating CNA *and* the CISA ADP, this should be treated as an error in the CISA ADP container -- the originating CNA's data should take precedence for any decision making.
-
-## Learn more
-
-This project is expected to evolve quickly over the next several weeks, so please keep an eye on this [README.md](https://github.com/cisagov/vulnrichment/blob/develop/README.md).
+Since the CISA ADP is committed to encouraging CNAs to Do The Right Thing and provide their own CWE, CVSS, and CPE data, if a CVE entry is updated to include that data after the CISA ADP has made their assessment, the CISA ADP will drop its own assessments from the CVE entry. This approach will reduce duplicate (and conflicting) data within the CVE record. In the rare event that there is CWE, CVSS, or CPE data provided by the originating CNA *and* the CISA ADP, this should be treated as an error in the CISA ADP container, and the originating CNA's data should take precedence.
 
 ## Issues and Pull Requests
 
-We want to hear from you, the IT cybersecurity professional community, about our ADP enrichment! If you see something, please feel free to say something in the [Issues](https://github.com/cisagov/vulnrichment/issues), or even better, open a [Pull Request](https://github.com/cisagov/vulnrichment/pulls) with your suggested fix. Note that if you have an issue with the original CVE data, you are encouraged to take that issue up with the [responsible CNA](https://www.cve.org/PartnerInformation/ListofPartners) directly.
+We want to hear from you, the IT cybersecurity professional community, about Vulnrichment and ADP! If you see something, please feel free to say something in the [Issues](https://github.com/cisagov/vulnrichment/issues), or even better, open a [Pull Request](https://github.com/cisagov/vulnrichment/pulls) with your suggested fix. Note that if you have an issue with the data from the CNA container, you are encouraged to take that issue up with the [responsible CNA](https://www.cve.org/PartnerInformation/ListofPartners) directly.
