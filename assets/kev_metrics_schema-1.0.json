@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2019-09/schema",
-    "$id": "https://github.com/cisagov/vulnrichment/assets/kev_metrics_schema.json",
+    "$id": "https://github.com/cisagov/vulnrichment/assets/kev_metrics_schema-1.0.json",
     "type": "object",
     "default": {},
     "title": "ADP Metrics Schema for KEV",
