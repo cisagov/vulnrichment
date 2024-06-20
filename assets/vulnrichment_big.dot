@@ -28,7 +28,7 @@ digraph vulnrichment {
 	"github" [label="GitHub" shape="box"]
 	"adp" [label="ADP" shape="box"]
 	"publish" [label="Publish" shape="box"]
-	"cna" [label="Get latest CNA\nconatiner" shape="box"]
+	"cna" [label="Get latest CNA\ncontainer" shape="box"]
 	"other" [label="Other\nfactors?" shape="diamond"]
 	"error" [label="Error" shape="box" style="dashed"]
 
