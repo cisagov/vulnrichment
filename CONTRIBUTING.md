@@ -19,7 +19,7 @@ PR'ed commit may be lost. However, we will make every effort to merge your PR in
 case, your contribution will be recognized by GitHub and your account will be listed as a contributor. Occasionally,
 though, such merges can create conflicts which we'd rather avoid. This is especially true if you are submitting a PR
 that affects a large number of CVEs. In these cases, the PR is still helpful to see what you're trying to accomplish,
-but the ultimate change may be a systemic change on our backend processing, and your origianl PR may be closed without
+but the ultimate change may be a systemic change on our backend processing, and your original PR may be closed without
 merging, even though the backend generator has been updated to effect your change on subsequent runs.
 
 As for anything that does not touch a CVE JSON file, such as changes to documentation and other assets, please feel
