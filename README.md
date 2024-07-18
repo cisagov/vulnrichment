@@ -12,7 +12,7 @@ First, CISA will take each CVE through an SSVC scoring process.
 
 Next, for those CVEs that are rated as "Total Technical Impact," "Automatable," or have "Exploitation" values of "Proof of Concept" or "Active Exploitation," further analysis will be conducted. CISA will determine if there is enough information to assert a specific CWE identifier, a CVSS score, or a CPE string. In some cases, CISA will provide these metrics even to vulnerabilities that do not rate as high risk on any of these decision points.
 
-For those CVEs that do not already have these fields populated by the originating CNA, CISA will populate the associated ADP container with those values when there is enough supporting evidence to do so.  In some cases, CISA may also add reference URLs. At no point will CISA overwrite the originating CNA's data in the original CNA container in the CVE record.
+For those CVEs that do not already have these fields populated by the originating CNA, CISA will populate the associated ADP container with those values when there is enough supporting evidence to do so. At no point will CISA overwrite the originating CNA's data in the original CNA container in the CVE record.
 
 This [flowchart](assets/vulnrichment_big.dot.svg) ([dot source](assets/vulnrichment_big.dot)) illustrates the Vulnrichment process. Please note that the details in the flowchart are subject to change as Vulnrichment processes are refined.
 
@@ -76,7 +76,7 @@ CVE-2024-35057 has a "total" value for "Technical Impact" on [line 78](2024/35xx
 
 #### KEV flag
 
-For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a KEV block. For those that aren't, no update will occur.
+For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a [KEV block](assets/kev_metrics_schema-1.0.json). For those that aren't, no update will occur.
 
 CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 102](2024/4xxx/CVE-2024-4947.json#L102-L107):
 

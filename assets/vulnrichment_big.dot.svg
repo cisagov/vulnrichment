@@ -11,7 +11,7 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-1973.5 459,-1973.5 459,4 -4,4"/>
 <text text-anchor="middle" x="227.5" y="-35.7" font-family="Helvetica,sans-Serif" font-size="14.00">CISA Vulnrichment Process</text>
 <text text-anchor="middle" x="227.5" y="-20.7" font-family="Helvetica,sans-Serif" font-size="14.00">https://github.com/cisagov/vulnrichment</text>
-<text text-anchor="middle" x="227.5" y="-5.7" font-family="Helvetica,sans-Serif" font-size="14.00">2024&#45;06&#45;03</text>
+<text text-anchor="middle" x="227.5" y="-5.7" font-family="Helvetica,sans-Serif" font-size="14.00">2024&#45;07&#45;09</text>
 <g id="clust1" class="cluster">
 <title>cluster_new</title>
 </g>
@@ -400,7 +400,7 @@
 <title>cna</title>
 <polygon fill="none" stroke="black" points="249.75,-853.6 166.25,-853.6 166.25,-803.2 249.75,-803.2 249.75,-853.6"/>
 <text text-anchor="middle" x="208" y="-830.15" font-family="Helvetica,sans-Serif" font-size="10.00">Get latest CNA</text>
-<text text-anchor="middle" x="208" y="-818.9" font-family="Helvetica,sans-Serif" font-size="10.00">conatiner</text>
+<text text-anchor="middle" x="208" y="-818.9" font-family="Helvetica,sans-Serif" font-size="10.00">container</text>
 </g>
 <!-- cna&#45;&gt;publish -->
 <g id="edge20" class="edge">

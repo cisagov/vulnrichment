@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "https://github.com/cisagov/vulnrichment/assets/kev_metrics_schema-1.0.json",
+    "type": "object",
+    "default": {},
+    "title": "ADP Metrics Schema for KEV",
+    "required": [
+        "dateAdded",
+        "reference"
+    ],
+    "properties": {
+        "dateAdded": {
+            "type": "string",
+            "title": "Date added to CISA KEV",
+            "examples": [
+                "2024-03-06"
+            ]
+        },
+        "reference": {
+            "type": "string",
+            "title": "URL to the entry for the CVE on the CISA KEV",
+            "examples": [
+                "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-23296"
+            ]
+        }
+    },
+    "examples": [{
+        "dateAdded": "2024-03-06",
+        "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-23296"
+    }]
+}

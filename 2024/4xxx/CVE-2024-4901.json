@@ -1,0 +1,210 @@
+{
+  "dataType": "CVE_RECORD",
+  "containers": {
+    "adp": [
+      {
+        "title": "CISA ADP Vulnrichment",
+        "metrics": [
+          {
+            "other": {
+              "type": "ssvc",
+              "content": {
+                "id": "CVE-2024-4901",
+                "role": "CISA Coordinator",
+                "options": [
+                  {
+                    "Exploitation": "none"
+                  },
+                  {
+                    "Automatable": "no"
+                  },
+                  {
+                    "Technical Impact": "total"
+                  }
+                ],
+                "version": "2.0.3",
+                "timestamp": "2024-06-28T03:55:15.710247Z"
+              }
+            }
+          }
+        ],
+        "affected": [
+          {
+            "cpes": [
+              "cpe:2.3:a:gitlab:gitlab:16.9.0:*:*:*:*:*:*:*"
+            ],
+            "vendor": "gitlab",
+            "product": "gitlab",
+            "versions": [
+              {
+                "status": "affected",
+                "version": "16.9.0",
+                "lessThan": "16.11.5",
+                "versionType": "custom"
+              }
+            ],
+            "defaultStatus": "unknown"
+          },
+          {
+            "cpes": [
+              "cpe:2.3:a:gitlab:gitlab:17.0:*:*:*:*:*:*:*"
+            ],
+            "vendor": "gitlab",
+            "product": "gitlab",
+            "versions": [
+              {
+                "status": "affected",
+                "version": "17.0",
+                "lessThan": "17.0.3",
+                "versionType": "custom"
+              }
+            ],
+            "defaultStatus": "unknown"
+          },
+          {
+            "cpes": [
+              "cpe:2.3:a:gitlab:gitlab:17.1:*:*:*:*:*:*:*"
+            ],
+            "vendor": "gitlab",
+            "product": "gitlab",
+            "versions": [
+              {
+                "status": "affected",
+                "version": "17.1",
+                "lessThan": "17.1.1",
+                "versionType": "custom"
+              }
+            ],
+            "defaultStatus": "unknown"
+          }
+        ],
+        "providerMetadata": {
+          "orgId": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+          "shortName": "CISA-ADP",
+          "dateUpdated": "2024-06-28T13:08:54.273Z"
+        }
+      }
+    ],
+    "cna": {
+      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
+      "credits": [
+        {
+          "lang": "en",
+          "type": "finder",
+          "value": "Thanks [yvvdwf](https://hackerone.com/yvvdwf) for reporting this vulnerability through our HackerOne bug bounty program"
+        }
+      ],
+      "metrics": [
+        {
+          "format": "CVSS",
+          "cvssV3_1": {
+            "scope": "CHANGED",
+            "version": "3.1",
+            "baseScore": 8.7,
+            "attackVector": "NETWORK",
+            "baseSeverity": "HIGH",
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:N",
+            "integrityImpact": "HIGH",
+            "userInteraction": "REQUIRED",
+            "attackComplexity": "LOW",
+            "availabilityImpact": "NONE",
+            "privilegesRequired": "LOW",
+            "confidentialityImpact": "HIGH"
+          },
+          "scenarios": [
+            {
+              "lang": "en",
+              "value": "GENERAL"
+            }
+          ]
+        }
+      ],
+      "affected": [
+        {
+          "repo": "git://git@gitlab.com:gitlab-org/gitlab.git",
+          "vendor": "GitLab",
+          "product": "GitLab",
+          "versions": [
+            {
+              "status": "affected",
+              "version": "16.9",
+              "lessThan": "16.11.5",
+              "versionType": "semver"
+            },
+            {
+              "status": "affected",
+              "version": "17.0",
+              "lessThan": "17.0.3",
+              "versionType": "semver"
+            },
+            {
+              "status": "affected",
+              "version": "17.1",
+              "lessThan": "17.1.1",
+              "versionType": "semver"
+            }
+          ],
+          "defaultStatus": "unaffected"
+        }
+      ],
+      "solutions": [
+        {
+          "lang": "en",
+          "value": "Upgrade to versions 17.1.1, 17.0.3, 16.11.5 or above."
+        }
+      ],
+      "references": [
+        {
+          "url": "https://gitlab.com/gitlab-org/gitlab/-/issues/461773",
+          "name": "GitLab Issue #461773",
+          "tags": [
+            "issue-tracking",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://hackerone.com/reports/2500163",
+          "name": "HackerOne Bug Bounty Report #2500163",
+          "tags": [
+            "technical-description",
+            "exploit",
+            "permissions-required"
+          ]
+        }
+      ],
+      "descriptions": [
+        {
+          "lang": "en",
+          "value": "An issue was discovered in GitLab CE/EE affecting all versions starting from 16.9 prior to 16.11.5, starting from 17.0 prior to 17.0.3, and starting from 17.1 prior to 17.1.1, where a stored XSS vulnerability could be imported from a project with malicious commit notes."
+        }
+      ],
+      "problemTypes": [
+        {
+          "descriptions": [
+            {
+              "lang": "en",
+              "type": "CWE",
+              "cweId": "CWE-79",
+              "description": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+            }
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "orgId": "ceab7361-8a18-47b1-92ba-4d7d25f6715a",
+        "shortName": "GitLab",
+        "dateUpdated": "2024-06-26T23:31:05.422Z"
+      }
+    }
+  },
+  "cveMetadata": {
+    "cveId": "CVE-2024-4901",
+    "state": "PUBLISHED",
+    "dateUpdated": "2024-06-28T13:08:59.344Z",
+    "dateReserved": "2024-05-15T09:30:34.902Z",
+    "assignerOrgId": "ceab7361-8a18-47b1-92ba-4d7d25f6715a",
+    "datePublished": "2024-06-26T23:31:05.422Z",
+    "assignerShortName": "GitLab"
+  },
+  "dataVersion": "5.1"
+}

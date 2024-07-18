@@ -1,6 +1,6 @@
 digraph vulnrichment {
 
-	label = "CISA Vulnrichment Process\nhttps://github.com/cisagov/vulnrichment\n2024-06-03"
+	label = "CISA Vulnrichment Process\nhttps://github.com/cisagov/vulnrichment\n2024-07-09"
 	layout="dot"
 	fontname="helvetica"
 	ordering="out"
@@ -28,7 +28,7 @@ digraph vulnrichment {
 	"github" [label="GitHub" shape="box"]
 	"adp" [label="ADP" shape="box"]
 	"publish" [label="Publish" shape="box"]
-	"cna" [label="Get latest CNA\nconatiner" shape="box"]
+	"cna" [label="Get latest CNA\ncontainer" shape="box"]
 	"other" [label="Other\nfactors?" shape="diamond"]
 	"error" [label="Error" shape="box" style="dashed"]
 
