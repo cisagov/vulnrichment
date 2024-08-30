@@ -26,7 +26,7 @@ All of the CVEs taken as examples below were chosen at random among those that f
 
 Every CVE analyzed by the CISA ADP will have three SSVC decision points listed. For these examples, we'll take a look at CVE-2024-34974, CVE-2024-25522, and CVE-2024-35057. We'll also look at CVE-2024-33666, which is a low-risk SSVC score.
 
-CVE-2024-25522 has a "poc" value for Exploit on [line 82](2024/25xxx/CVE-2024-25522.json#L82) indicating there was a public proof-of-concept available at the time of analysis:
+CVE-2024-25522 has a "poc" value for Exploit on [line 47](2024/25xxx/CVE-2024-25522.json#L47) indicating there was a public proof-of-concept available at the time of analysis:
 
 ```json
                 "options": [
@@ -42,7 +42,7 @@ CVE-2024-25522 has a "poc" value for Exploit on [line 82](2024/25xxx/CVE-2024-25
                 ]
 ```
 
-CVE-2024-34974 has a "yes" value for "Automatable" on [line 75](2024/34xxx/CVE-2024-34974.json#L75) indicating that an attacker could generally exploit this vulnerability at will, without having to worry about recon, weaponization, delivery, or exploitation prevention techniques.
+CVE-2024-34974 has a "yes" value for "Automatable" on [line 50](2024/34xxx/CVE-2024-34974.json#L50) indicating that an attacker could generally exploit this vulnerability at will, without having to worry about recon, weaponization, delivery, or exploitation prevention techniques.
 
 ```json
                 "options": [
@@ -58,7 +58,7 @@ CVE-2024-34974 has a "yes" value for "Automatable" on [line 75](2024/34xxx/CVE-2
                 ]
 ```
 
-CVE-2024-35057 has a "total" value for "Technical Impact" on [line 78](2024/35xxx/CVE-2024-35057.json#L78) indicating that the exploiting this vulnerability generally will give the attacker total control over the impacted software.
+CVE-2024-35057 has a "total" value for "Technical Impact" on [line 59](2024/35xxx/CVE-2024-35057.json#L59) indicating that the exploiting this vulnerability generally will give the attacker total control over the impacted software.
 
 ```json
                 "options": [
@@ -78,7 +78,7 @@ CVE-2024-35057 has a "total" value for "Technical Impact" on [line 78](2024/35xx
 
 For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a [KEV block](assets/kev_metrics_schema-1.0.json). For those that aren't, no update will occur.
 
-CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 102](2024/4xxx/CVE-2024-4947.json#L102-L107):
+CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 88](2024/4xxx/CVE-2024-4947.json#L88):
 
 ```json
             "other": {
@@ -91,7 +91,7 @@ CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 102]
 
 #### CWE identifiers
 
-CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE, and a CISA analyst was able to determine one from the context of the vulnerability information available. That metric starts on [line 98](2024/3xxx/CVE-2024-3477.json#L98-L109) under the `problemTypes` node:
+CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE, and a CISA analyst was able to determine one from the context of the vulnerability information available. That metric starts on [line 49](2024/3xxx/CVE-2024-3477.json#L49-L60) under the `problemTypes` node:
 
 ```json
         "problemTypes": [
@@ -110,7 +110,7 @@ CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE,
 
 #### CVSS calculations
 
-CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, starting on [line 64](2024/0xxx/CVE-2024-0043.json#L64-L77). Again, this is based on the context of the vulnerability information available at the time of analysis.
+CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, starting on [line 30](2024/0xxx/CVE-2024-0043.json#L30-L44). Again, this is based on the context of the vulnerability information available at the time of analysis.
 
 ```json
             "cvssV3_1": {
@@ -131,7 +131,7 @@ CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, start
 
 #### CPE strings
 
-CVE-2024-1347 is an example CVE that had a CPE string added by CISA, starting on [line 153](2024/1xxx/CVE-2024-1347.json#L153-L155).
+CVE-2024-1347 is an example CVE that had a CPE string added by CISA, starting on [line 61](2024/1xxx/CVE-2024-1347.json#L61-L63).
 
 ```json
             "cpes": [
