@@ -2,9 +2,10 @@
 
 The CISA Vulnrichment project is the public repository of CISA's enrichment of public CVE records through CISA's ADP (Authorized Data Publisher) container. In this phase of the project, CISA is assessing new and recent CVEs and adding key [SSVC](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc) decision points. Once scored, some higher-risk CVEs will also receive enrichment of [CWE](https://cwe.mitre.org/), [CVSS](https://www.first.org/cvss/), and [CPE](https://csrc.nist.gov/publications/search?keywords-lg=CPE) data points, where possible.
 
-Producers and consumers of this CVE data should already be familiar with the current [CVE Record Format](https://www.cve.org/AllResources/CveServices#CveRecordFormat) and can access this data in the normal ways, including the [GitHub API](https://docs.github.com/en/rest/quickstart) and the [CVE Services API](https://cveawg-test.mitre.org/api-docs/).
+Producers and consumers of this CVE data should already be familiar with the current [CVE Record Format](https://www.cve.org/AllResources/CveServices#CveRecordFormat) and can access this data in the normal ways, including the [GitHub API](https://docs.github.com/en/rest/quickstart) and the [CVE Services API](https://cveawg-test.mitre.org/api-docs/). Note that the results of Vulnrichment are being pushed back to the CVE corpus, through the recently (2024) launched [ADP Program](https://www.cve.org/Media/News/item/blog/2024/06/04/CISA-Added-as-CVE-Authorized-Data-Publisher). Downstream consumers need not fork and track this GitHub repo if they are already consuming live CVE data.
 
 This project is under active development, so keep an eye on this [README.md](https://github.com/cisagov/vulnrichment/blob/develop/README.md) for updates.
+
 
 ## How it works
 
