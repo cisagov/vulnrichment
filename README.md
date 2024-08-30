@@ -157,6 +157,24 @@ Of all the enriched data types, consistent and universal software identification
 
 Since the CISA ADP is committed to encouraging CNAs to Do The Right Thing and provide their own CWE, CVSS, and CPE data, if a CVE entry is updated to include that data after the CISA ADP has made their assessment, the CISA ADP will drop its own assessments from the CVE entry. This approach will reduce duplicate (and conflicting) data within the CVE record. In the rare event that there is CWE, CVSS, or CPE data provided by the originating CNA *and* the CISA ADP, this should be treated as an error in the CISA ADP container, and the originating CNA's data should take precedence.
 
+### A note about SSVC data
+
+SSVC data is encoded in a way that aligns with the schema for the SSVC 
+version used in the decision tree that generated the data. Currently, 
+CISA is utilizing the [CISA Coordinator](https://github.com/CERTCC/SSVC/blob/main/docs/ssvc-calc/CISA-Coordinator.json) 
+tree.
+
+The version field in SSVC data follows the major.minor.patch convention,
+where major.minor denotes the SSVC version, and patch denotes the
+decision tree version. For the current CISA decision tree, this results
+in a version number of 2.0.3: SSVC version 2.0, CISA Coordinator tree
+version 3. 
+
+Updates to the decision tree to conform with updates to SSVC will result
+in changes to the version string. Users consuming this data are urged to 
+observe the version when decoding SSVC scores to determine how to validate 
+and process the JSON data.
+
 ## Issues and Pull Requests
 
 We want to hear from you, the IT cybersecurity professional community, about Vulnrichment and ADP! If you see something, please feel free to say something in the [Issues](https://github.com/cisagov/vulnrichment/issues), or even better, open a [Pull Request](https://github.com/cisagov/vulnrichment/pulls) with your suggested fix. Note that if you have an issue with the data from the CNA container, you are encouraged to take that issue up with the [responsible CNA](https://www.cve.org/PartnerInformation/ListofPartners) directly.
