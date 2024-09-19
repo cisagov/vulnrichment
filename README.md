@@ -6,7 +6,6 @@ Producers and consumers of this CVE data should already be familiar with the cur
 
 This project is under active development, so keep an eye on this [README.md](https://github.com/cisagov/vulnrichment/blob/develop/README.md) for updates.
 
-
 ## How it works
 
 First, CISA will take each CVE through an SSVC scoring process.
@@ -30,49 +29,49 @@ Every CVE analyzed by the CISA ADP will have three SSVC decision points listed. 
 CVE-2024-25522 has a "poc" value for Exploit on [line 47](2024/25xxx/CVE-2024-25522.json#L47) indicating there was a public proof-of-concept available at the time of analysis:
 
 ```json
-                "options": [
-                  {
-                    "Exploitation": "poc"
-                  },
-                  {
-                    "Automatable": "yes"
-                  },
-                  {
-                    "Technical Impact": "total"
-                  }
-                ]
+"options": [
+  {
+    "Exploitation": "poc"
+  },
+  {
+    "Automatable": "yes"
+  },
+  {
+    "Technical Impact": "total"
+  }
+]
 ```
 
 CVE-2024-34974 has a "yes" value for "Automatable" on [line 50](2024/34xxx/CVE-2024-34974.json#L50) indicating that an attacker could generally exploit this vulnerability at will, without having to worry about recon, weaponization, delivery, or exploitation prevention techniques.
 
 ```json
-                "options": [
-                  {
-                    "Exploitation": "none"
-                  },
-                  {
-                    "Automatable": "yes"
-                  },
-                  {
-                    "Technical Impact": "partial"
-                  }
-                ]
+"options": [
+  {
+    "Exploitation": "none"
+  },
+  {
+    "Automatable": "yes"
+  },
+  {
+    "Technical Impact": "partial"
+  }
+]
 ```
 
 CVE-2024-35057 has a "total" value for "Technical Impact" on [line 59](2024/35xxx/CVE-2024-35057.json#L59) indicating that the exploiting this vulnerability generally will give the attacker total control over the impacted software.
 
 ```json
-                "options": [
-                  {
-                    "Exploitation": "none"
-                  },
-                  {
-                    "Automatable": "no"
-                  },
-                  {
-                    "Technical Impact": "total"
-                  }
-                ]
+"options": [
+  {
+    "Exploitation": "none"
+  },
+  {
+    "Automatable": "no"
+  },
+  {
+    "Technical Impact": "total"
+  }
+]
 ```
 
 #### KEV flag
@@ -82,12 +81,13 @@ For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulner
 CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 88](2024/4xxx/CVE-2024-4947.json#L88):
 
 ```json
-            "other": {
-              "type": "kev",
-              "content": {
-                "dateAdded": "2024-05-20",
-                "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-4947"
-              }
+"other": {
+  "type": "kev",
+  "content": {
+    "dateAdded": "2024-05-20",
+    "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-4947"
+  }
+}
 ```
 
 #### CWE identifiers
@@ -95,18 +95,18 @@ CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 88](
 CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE, and a CISA analyst was able to determine one from the context of the vulnerability information available. That metric starts on [line 49](2024/3xxx/CVE-2024-3477.json#L49-L60) under the `problemTypes` node:
 
 ```json
-        "problemTypes": [
-          {
-            "descriptions": [
-              {
-                "lang": "en",
-                "type": "CWE",
-                "cweId": "CWE-352",
-                "description": "CWE-352 Cross-Site Request Forgery (CSRF)"
-              }
-            ]
-          }
-        ]
+"problemTypes": [
+  {
+    "descriptions": [
+      {
+        "lang": "en",
+        "type": "CWE",
+        "cweId": "CWE-352",
+        "description": "CWE-352 Cross-Site Request Forgery (CSRF)"
+      }
+    ]
+  }
+]
 ```
 
 #### CVSS calculations
@@ -114,20 +114,20 @@ CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE,
 CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, starting on [line 30](2024/0xxx/CVE-2024-0043.json#L30-L44). Again, this is based on the context of the vulnerability information available at the time of analysis.
 
 ```json
-            "cvssV3_1": {
-              "scope": "UNCHANGED",
-              "version": "3.1",
-              "baseScore": 7.8,
-              "attackVector": "LOCAL",
-              "baseSeverity": "HIGH",
-              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
-              "integrityImpact": "HIGH",
-              "userInteraction": "REQUIRED",
-              "attackComplexity": "LOW",
-              "availabilityImpact": "HIGH",
-              "privilegesRequired": "NONE",
-              "confidentialityImpact": "HIGH"
-            }
+"cvssV3_1": {
+  "scope": "UNCHANGED",
+  "version": "3.1",
+  "baseScore": 7.8,
+  "attackVector": "LOCAL",
+  "baseSeverity": "HIGH",
+  "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+  "integrityImpact": "HIGH",
+  "userInteraction": "REQUIRED",
+  "attackComplexity": "LOW",
+  "availabilityImpact": "HIGH",
+  "privilegesRequired": "NONE",
+  "confidentialityImpact": "HIGH"
+}
 ```
 
 #### CPE strings
@@ -135,9 +135,9 @@ CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, start
 CVE-2024-1347 is an example CVE that had a CPE string added by CISA, starting on [line 61](2024/1xxx/CVE-2024-1347.json#L61-L63).
 
 ```json
-            "cpes": [
-              "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*"
-            ]
+"cpes": [
+  "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*"
+]
 ```
 
 We have more to say about CPE strings below.
