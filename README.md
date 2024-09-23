@@ -6,7 +6,6 @@ Producers and consumers of this CVE data should already be familiar with the cur
 
 This project is under active development, so keep an eye on this [README.md](https://github.com/cisagov/vulnrichment/blob/develop/README.md) for updates.
 
-
 ## How it works
 
 First, CISA will take each CVE through an SSVC scoring process.
@@ -30,49 +29,49 @@ Every CVE analyzed by the CISA ADP will have three SSVC decision points listed. 
 CVE-2024-25522 has a "poc" value for Exploit on [line 47](2024/25xxx/CVE-2024-25522.json#L47) indicating there was a public proof-of-concept available at the time of analysis:
 
 ```json
-                "options": [
-                  {
-                    "Exploitation": "poc"
-                  },
-                  {
-                    "Automatable": "yes"
-                  },
-                  {
-                    "Technical Impact": "total"
-                  }
-                ]
+"options": [
+  {
+    "Exploitation": "poc"
+  },
+  {
+    "Automatable": "yes"
+  },
+  {
+    "Technical Impact": "total"
+  }
+]
 ```
 
 CVE-2024-34974 has a "yes" value for "Automatable" on [line 50](2024/34xxx/CVE-2024-34974.json#L50) indicating that an attacker could generally exploit this vulnerability at will, without having to worry about recon, weaponization, delivery, or exploitation prevention techniques.
 
 ```json
-                "options": [
-                  {
-                    "Exploitation": "none"
-                  },
-                  {
-                    "Automatable": "yes"
-                  },
-                  {
-                    "Technical Impact": "partial"
-                  }
-                ]
+"options": [
+  {
+    "Exploitation": "none"
+  },
+  {
+    "Automatable": "yes"
+  },
+  {
+    "Technical Impact": "partial"
+  }
+]
 ```
 
 CVE-2024-35057 has a "total" value for "Technical Impact" on [line 59](2024/35xxx/CVE-2024-35057.json#L59) indicating that the exploiting this vulnerability generally will give the attacker total control over the impacted software.
 
 ```json
-                "options": [
-                  {
-                    "Exploitation": "none"
-                  },
-                  {
-                    "Automatable": "no"
-                  },
-                  {
-                    "Technical Impact": "total"
-                  }
-                ]
+"options": [
+  {
+    "Exploitation": "none"
+  },
+  {
+    "Automatable": "no"
+  },
+  {
+    "Technical Impact": "total"
+  }
+]
 ```
 
 #### KEV flag
@@ -82,12 +81,13 @@ For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulner
 CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 88](2024/4xxx/CVE-2024-4947.json#L88):
 
 ```json
-            "other": {
-              "type": "kev",
-              "content": {
-                "dateAdded": "2024-05-20",
-                "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-4947"
-              }
+"other": {
+  "type": "kev",
+  "content": {
+    "dateAdded": "2024-05-20",
+    "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-4947"
+  }
+}
 ```
 
 #### CWE identifiers
@@ -95,18 +95,18 @@ CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 88](
 CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE, and a CISA analyst was able to determine one from the context of the vulnerability information available. That metric starts on [line 49](2024/3xxx/CVE-2024-3477.json#L49-L60) under the `problemTypes` node:
 
 ```json
-        "problemTypes": [
-          {
-            "descriptions": [
-              {
-                "lang": "en",
-                "type": "CWE",
-                "cweId": "CWE-352",
-                "description": "CWE-352 Cross-Site Request Forgery (CSRF)"
-              }
-            ]
-          }
-        ]
+"problemTypes": [
+  {
+    "descriptions": [
+      {
+        "lang": "en",
+        "type": "CWE",
+        "cweId": "CWE-352",
+        "description": "CWE-352 Cross-Site Request Forgery (CSRF)"
+      }
+    ]
+  }
+]
 ```
 
 #### CVSS calculations
@@ -114,20 +114,20 @@ CVE-2024-3477 is an example CVE which the originating CNA did not provide a CWE,
 CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, starting on [line 30](2024/0xxx/CVE-2024-0043.json#L30-L44). Again, this is based on the context of the vulnerability information available at the time of analysis.
 
 ```json
-            "cvssV3_1": {
-              "scope": "UNCHANGED",
-              "version": "3.1",
-              "baseScore": 7.8,
-              "attackVector": "LOCAL",
-              "baseSeverity": "HIGH",
-              "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
-              "integrityImpact": "HIGH",
-              "userInteraction": "REQUIRED",
-              "attackComplexity": "LOW",
-              "availabilityImpact": "HIGH",
-              "privilegesRequired": "NONE",
-              "confidentialityImpact": "HIGH"
-            }
+"cvssV3_1": {
+  "scope": "UNCHANGED",
+  "version": "3.1",
+  "baseScore": 7.8,
+  "attackVector": "LOCAL",
+  "baseSeverity": "HIGH",
+  "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+  "integrityImpact": "HIGH",
+  "userInteraction": "REQUIRED",
+  "attackComplexity": "LOW",
+  "availabilityImpact": "HIGH",
+  "privilegesRequired": "NONE",
+  "confidentialityImpact": "HIGH"
+}
 ```
 
 #### CPE strings
@@ -135,9 +135,9 @@ CVE-2024-0043 is an example CVE that had a CVSS calculation added by CISA, start
 CVE-2024-1347 is an example CVE that had a CPE string added by CISA, starting on [line 61](2024/1xxx/CVE-2024-1347.json#L61-L63).
 
 ```json
-            "cpes": [
-              "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*"
-            ]
+"cpes": [
+  "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*"
+]
 ```
 
 We have more to say about CPE strings below.
@@ -154,27 +154,28 @@ Of all the enriched data types, consistent and universal software identification
 2. CPE entries that are present in NVD data but not in the Dictionary
 3. CPE entries created by CISA
 
+Due to the current design of the CVE Record Format, adding CPE strings (to the `cpes` list) effectively requires us to also create [`affected`](https://cveproject.github.io/cve-schema/schema/docs/#oneOf_i0_containers_cna_affected) and [`versions`](https://cveproject.github.io/cve-schema/schema/docs/#oneOf_i0_containers_cna_affected_items_versions) arrays. This increases the possibility of disagreement between sources of vulnerability status and software identity information, including:
+
+* the CVE description (CNA)
+* `affected` data (CNA)
+* `cpes` data (ADP)
+* `affected` data (ADP)
+* external references, like an advisory from the CNA
+* external references from a party other than the CNA
+
+We'll do what we can to fix or improve data in our control, please open an [issue](https://github.com/cisagov/vulnrichment/issues) if you notice trouble with ADP-provided data.
+
 ### A note about updated CVE entries
 
 Since the CISA ADP is committed to encouraging CNAs to Do The Right Thing and provide their own CWE, CVSS, and CPE data, if a CVE entry is updated to include that data after the CISA ADP has made their assessment, the CISA ADP will drop its own assessments from the CVE entry. This approach will reduce duplicate (and conflicting) data within the CVE record. In the rare event that there is CWE, CVSS, or CPE data provided by the originating CNA *and* the CISA ADP, this should be treated as an error in the CISA ADP container, and the originating CNA's data should take precedence.
 
 ### A note about SSVC data
 
-SSVC data is encoded in a way that aligns with the schema for the SSVC 
-version used in the decision tree that generated the data. Currently, 
-CISA is utilizing the [CISA Coordinator](https://github.com/CERTCC/SSVC/blob/main/docs/ssvc-calc/CISA-Coordinator.json) 
-tree.
+SSVC data is encoded in a way that aligns with the schema for the SSVC version used in the decision tree that generated the data. Currently, CISA is utilizing the [CISA Coordinator](https://github.com/CERTCC/SSVC/blob/main/docs/ssvc-calc/CISA-Coordinator.json) tree.
 
-The version field in SSVC data follows the major.minor.patch convention,
-where major.minor denotes the SSVC version, and patch denotes the
-decision tree version. For the current CISA decision tree, this results
-in a version number of 2.0.3: SSVC version 2.0, CISA Coordinator tree
-version 3. 
+The version field in SSVC data follows the major.minor.patch convention, where major.minor denotes the SSVC version, and patch denotes the decision tree version. For the current CISA decision tree, this results in a version number of 2.0.3: SSVC version 2.0, CISA Coordinator tree version 3.
 
-Updates to the decision tree to conform with updates to SSVC will result
-in changes to the version string. Users consuming this data are urged to 
-observe the version when decoding SSVC scores to determine how to validate 
-and process the JSON data.
+Updates to the decision tree to conform with updates to SSVC will result in changes to the version string. Users consuming this data are urged to observe the version when decoding SSVC scores to determine how to validate and process the JSON data.
 
 ## Issues and Pull Requests
 
