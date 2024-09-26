@@ -15,7 +15,6 @@ A clear and concise description of what the bug is.
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-
 **Screenshots**
 If applicable, add screenshots or console output to help explain your problem.
 
