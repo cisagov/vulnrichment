@@ -19,11 +19,9 @@ digraph vulnrichment {
 	"automatable" [label="Automatable?" shape="diamond"]
 	"cwe" [label="CWE?" shape="diamond"]
 	"cvss" [label="CVSS?" shape="diamond"]
-	"cpe" [label="CPE?" shape="diamond"]
 	"references" [label="Additional\nreferences?" shape="diamond"]
 	"do_cwe" [label="Add CWE" shape="box"]
 	"do_cvss" [label="Add CVSS" shape="box"]
-	"do_cpe" [label="Add CPE" shape="box"]
 	"do_references" [label="Add\nreferences" shape="box"]
 	"github" [label="GitHub" shape="box"]
 	"adp" [label="ADP" shape="box"]
@@ -97,12 +95,7 @@ digraph vulnrichment {
 		cwe -> cvss [label=" yes"]
 		cwe -> do_cwe [label=" no"]
 		do_cwe -> cvss
-		cvss -> cpe [label=" yes"]
 		cvss -> do_cvss [label=" no"]
-		do_cvss -> cpe
-		cpe -> references [label=" yes"]
-		cpe -> do_cpe [label=" no"]
-		do_cpe -> references
 		references -> do_references [label=" yes"]
 		references -> enrich_stop [label=" no"]
 		do_references -> enrich_stop
