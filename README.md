@@ -78,14 +78,14 @@ CVE-2024-35057 has a "total" value for "Technical Impact" on [line 59](2024/35xx
 
 For those CVEs that are on the [KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), the CISA ADP will add a [KEV block](assets/kev_metrics_schema-1.0.json). For those that aren't, no update will occur.
 
-CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 88](2024/4xxx/CVE-2024-4947.json#L88):
+CVE-2024-4947 is one such CVE, and contains the KEV block starting at [line 153](2024/4xxx/CVE-2024-4947.json#L153):
 
 ```json
 "other": {
   "type": "kev",
   "content": {
     "dateAdded": "2024-05-20",
-    "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-4947"
+    "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2024-4947"
   }
 }
 ```
