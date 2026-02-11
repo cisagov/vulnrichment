@@ -1,4 +1,5 @@
 # CISA Vulnrichment
+[![DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/cisagov/vulnrichment)
 
 The CISA Vulnrichment project is the public repository of CISA's enrichment of public CVE records through CISA's ADP (Authorized Data Publisher) container. In this phase of the project, CISA is assessing new and recent CVEs and adding key [SSVC](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc) decision points. Once scored, some higher-risk CVEs will also receive enrichment of [CWE](https://cwe.mitre.org/) and/or [CVSS](https://www.first.org/cvss/) data points, where possible.
 
